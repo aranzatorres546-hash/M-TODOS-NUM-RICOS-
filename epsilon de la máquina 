@@ -1,0 +1,96 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPV8RAS5TB+3r5FY6CcLhgf",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/aranzatorres546-hash/M-TODOS-NUM-RICOS-/blob/main/epsilon%20de%20la%20m%C3%A1quina%20\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        " epsilon de la maquina.\n",
+        "\n",
+        " el epsilon de maquina representa al intervalo en donde los numeros decimales ya no cambian, todos son inguales, y para que cambien se tuenes que salir del intervalo M0."
+      ],
+      "metadata": {
+        "id": "-jqodTtB6o8r"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np"
+      ],
+      "metadata": {
+        "id": "c5vFYLpC6eY_"
+      },
+      "execution_count": 21,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 24,
+      "metadata": {
+        "id": "NV6_kEFP6Cfq"
+      },
+      "outputs": [],
+      "source": [
+        "E=np.finfo(np.float64)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "epsilon_calculado = 1.0\n",
+        "\n",
+        "# Continuar dividiendo epsilon_calculado por 2 hasta que 1.0 + epsilon_calculado / 2 no sea mayor que 1.0\n",
+        "while (1.0 + epsilon_calculado / 2.0) < 1.0:\n",
+        "    epsilon_calculado /= 2.0\n",
+        "\n",
+        "print(f\"Épsilon de Máquina (calculado iterativamente): {epsilon_calculado}\")\n",
+        "\n",
+        "# Comparar con el valor de numpy (E se define en el celda anterior)\n",
+        "print(f\"Épsilon de Máquina (usando numpy.finfo): {E.eps}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "y5yYD-YM6PNQ",
+        "outputId": "82501d49-942f-4dbf-9e20-f074b5903673"
+      },
+      "execution_count": 28,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Épsilon de Máquina (calculado iterativamente): 1.0\n",
+            "Épsilon de Máquina (usando numpy.finfo): 2.220446049250313e-16\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
